@@ -1,4 +1,5 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+// Material UI
+import { ThemeProvider } from '@mui/material/styles';
 import { Header } from './components';
 import {
   Divider,
@@ -6,6 +7,11 @@ import {
   CssBaseline,
 } from '@mui/material'
 import { styled } from '@mui/system';
+
+// Custom theme
+import { theme } from './lib/theme';
+
+// Styled components
 
 const SubContainer = styled(Container)(({ theme }) => ({
 
@@ -22,35 +28,6 @@ const SubContainer = styled(Container)(({ theme }) => ({
 
 
 function App() {
-
-  const theme = createTheme({
-    palette: {
-      mode: 'light',
-      primary: {
-        main: '#0059BC',
-        dark: '#004C9E',
-        light: '#0059BC',
-      },
-    },
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 480,
-        md: 768,
-        lg: 1440,
-      },
-    },
-    components: {
-      MuiDivider: {
-        styleOverrides: {
-          root: {
-            borderWidth: 1,
-          },
-        },
-      },
-    },
-  });
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -59,9 +36,7 @@ function App() {
           <Header />
         </SubContainer>
         <Divider sx={{ borderColor: '#89919A' }} />
-
       </Container>
-
     </ThemeProvider>
   );
 }
